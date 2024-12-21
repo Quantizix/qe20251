@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>QE2025</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>QE2025</h1>
+    <nav>
+      <a href="{{ url_for('index') }}">Home</a>
+      {% if session.get('username') %}
+        | <a href="{{ url_for('logout') }}">Logout</a>
+      {% else %}
+        | <a href="{{ url_for('login') }}">Login</a>
+        | <a href="{{ url_for('signup') }}">Sign Up</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

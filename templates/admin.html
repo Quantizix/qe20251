@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<p>Welcome, Admin!</p>
+
+<ul>
+  <li><a href="{{ url_for('macros') }}">Macros</a></li>
+  <li><a href="{{ url_for('timeblocks') }}">Time Blocks</a></li>
+  <li><a href="{{ url_for('reminders') }}">Reminders</a></li>
+  <li><a href="{{ url_for('other') }}">Other</a></li>
+</ul>
+{% endblock %}

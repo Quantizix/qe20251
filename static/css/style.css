@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+header h1 {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+header nav a {
+  color: #fff;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.container {
+  margin: 20px auto;
+  width: 80%;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.15);
+}
+
+label {
+  display: inline-block;
+  width: 150px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+button {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+ul li {
+  background: #fafafa;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 3px;
+}

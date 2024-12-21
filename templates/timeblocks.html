@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Time Blocks by Date</h2>
+
+<!-- We no longer have a date picker. Just one big form with 24 inputs. -->
+<form action="{{ url_for('timeblocks') }}" method="POST">
+  <!-- Generate 24 hour blocks in a loop -->
+  {% for i in range(24) %}
+    <label>{{ i }}:00</label>
+    <input type="text" name="block_{{ i }}">
+    <br><br>
+  {% endfor %}
+
+  <button type="submit">Save Time Blocks</button>
+</form>
+
+<hr />
+<h3>Your Time Blocks Log</h3>
+{% if user_blocks %}
+  {% for entry in user_blocks %}
+    <h4>Date: {{ entry.date }}</h4>
+    <ul>
+      {% for hour_label, description in entry.blocks.items() %}
+        <li><strong>{{ hour_label }}</strong>: {{ description }}</li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+{% else %}
+  <p>No entries yet.</p>
+{% endif %}
+{% endblock %}

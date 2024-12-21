@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Macros</h2>
+
+<form action="{{ url_for('macros') }}" method="POST">
+  <!-- No date field anymore. -->
+
+  <label>Food:</label>
+  <input type="text" name="food" required>
+  <br><br>
+
+  <label>Calories:</label>
+  <input type="number" name="calories" required>
+  <br><br>
+
+  <label>Protein (g):</label>
+  <input type="number" name="protein" required>
+  <br><br>
+
+  <label>Fat (g):</label>
+  <input type="number" name="fat" required>
+  <br><br>
+
+  <label>Carbs (g):</label>
+  <input type="number" name="carbs" required>
+  <br><br>
+
+  <button type="submit">Add Entry</button>
+</form>
+
+<hr>
+<h3>Macros Log</h3>
+{% if macros_list %}
+  <ul>
+    {% for entry in macros_list %}
+      <li>
+        <strong>{{ entry.date }}</strong> — {{ entry.food }}:
+        {{ entry.calories }} cal | 
+        {{ entry.protein }}g protein | 
+        {{ entry.fat }}g fat | 
+        {{ entry.carbs }}g carbs
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No macros logged yet.</p>
+{% endif %}
+{% endblock %}

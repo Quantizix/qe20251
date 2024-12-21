@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome to QE2025!</h2>
+
+{% if session.get('username') %}
+  <p>You are logged in as <strong>{{ session['username'] }}</strong>.</p>
+  {% if session['username'] == 'admin' %}
+    <p><a href="{{ url_for('admin') }}">Go to Admin Page</a></p>
+  {% endif %}
+{% else %}
+  <p>You are not logged in.</p>
+  <a href="{{ url_for('login') }}">Login</a> | 
+  <a href="{{ url_for('signup') }}">Sign Up</a>
+{% endif %}
+
+{% endblock %}

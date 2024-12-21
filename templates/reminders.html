@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Reminders</h2>
+
+<form action="{{ url_for('reminders') }}" method="POST">
+  <label for="date">Date:</label>
+  <input type="date" name="date" required>
+  <br><br>
+
+  <label>Reminder:</label>
+  <input type="text" name="reminder_text" required>
+  <br><br>
+
+  <button type="submit">Add Reminder</button>
+</form>
+
+<hr>
+<h3>Your Reminders</h3>
+{% if reminders_list %}
+  <ul>
+    {% for reminder in reminders_list %}
+      <li>
+        <strong>{{ reminder.date }}</strong> — {{ reminder.reminder_text }}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No reminders yet.</p>
+{% endif %}
+{% endblock %}
